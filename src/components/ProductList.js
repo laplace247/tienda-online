@@ -1,12 +1,27 @@
+import React from 'react';
+
 function ProductList() {
+  // Simulación de productos
+  const products = [
+    { id: 1, name: 'Vaso de Cerámica', price: 120 },
+    { id: 2, name: 'Bolso de Tela', price: 250 },
+    { id: 3, name: 'Collar Artesanal', price: 80 }
+  ];
+
   return (
-    <div>
-      <h2>Lista de Productos</h2>
-      <ul>
-        <li>Producto 1</li>
-        <li>Producto 2</li>
-      </ul>
-    </div>
+    <section className="product-list">
+      <h2>Productos Destacados</h2>
+      <div className="products">
+        {products.map(product => (
+          <div className="product-card" key={product.id}>
+            <h3>{product.name}</h3>
+            <p>${product.price}</p>
+            <button>Agregar al carrito</button>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
+
 export default ProductList;
