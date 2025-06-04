@@ -151,31 +151,6 @@ tienda-online/
 - **Menú**: Hamburguesa con overlay en móviles
 - **Imágenes**: Escalado proporcional
 
-##  Productos Incluidos
-
-La tienda incluye 4 artesanías de ejemplo:
-
-1. **Cerámica Artesanal Azul** - $25.99
-2. **Tejido de Alpaca Andino** - $79.50
-3. **Máscara Decorativa de Madera** - $45.00
-4. **Juego de Joyería de Plata** - $120.00
-
-##  Scripts Disponibles
-
-```bash
-# Desarrollo
-npm start          # Inicia servidor de desarrollo
-
-# Construcción
-npm run build      # Construye para producción
-
-# Pruebas
-npm test           # Ejecuta pruebas
-
-# Análisis
-npm run eject      # Expone configuración (irreversible)
-```
-
 ##  Organización de Estilos
 
 Los estilos están organizados en la carpeta `src/styles/` para mejor mantenimiento:
