@@ -1,79 +1,79 @@
+import { Link } from 'react-router-dom';
+import '../styles/Cart.css';
+
 function Cart({ cart, removeFromCart }) {
-  const total = cart.reduce((sum, item) => sum + item.price, 0);
+  const total = cart.reduce((sum, product) => sum + product.price, 0);
+
+  const handleRemoveItem = (index) => {
+    // Confirmación antes de eliminar
+    if (window.confirm('¿Estás seguro de que quieres eliminar este producto del carrito?')) {
+      removeFromCart(index);
+    }
+  };
+
+  const handleCheckout = () => {
+    alert(`¡Gracias por tu compra! Total: $${total.toFixed(2)}\n\nEsta es una simulación. En una aplicación real, aquí se procesaría el pago.`);
+  };
 
   if (cart.length === 0) {
     return (
-      <div style={{ padding: '2rem', textAlign: 'center' }}>
-        <h2>Tu carrito está vacío</h2>
-        <p>¡Agrega algunos productos hermosos a tu carrito!</p>
+      <div className="cart-container">
+        <div className="cart-empty">
+          <h2>Tu carrito está vacío</h2>
+          <p>
+            <Link to="/">Continúa comprando</Link> para agregar productos.
+          </p>
+        </div>
       </div>
     );
   }
 
   return (
-    <div style={{ padding: '2rem', maxWidth: '800px', margin: '0 auto' }}>
-      <h2>Carrito de Compras</h2>
-      
-      <div style={{ marginTop: '1rem' }}>
-        {cart.map((item, index) => (
-          <div key={index} style={{ 
-            display: 'flex', 
-            justifyContent: 'space-between', 
-            alignItems: 'center',
-            padding: '1rem',
-            border: '1px solid #ddd',
-            borderRadius: '4px',
-            marginBottom: '0.5rem'
-          }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              <img 
-                src={item.imageUrl} 
-                alt={item.name}
-                style={{ width: '60px', height: '60px', objectFit: 'cover', borderRadius: '4px' }}
+    <div className="cart-container">
+      <h2 className="cart-title">Carrito de Compras</h2>
+
+      <div className="cart-items">
+        {cart.map((product, index) => (
+          <div key={`${product.id}-${index}`} className="cart-item">
+            <div className="cart-item-info">
+              <img
+                src={product.imageUrl}
+                alt={product.name}
+                className="cart-item-image"
               />
-              <div>
-                <h4>{item.name}</h4>
-                <p style={{ color: '#28a745', fontWeight: 'bold' }}>${item.price}</p>
+              <div className="cart-item-details">
+                <h4>{product.name}</h4>
+                <p className="cart-item-price">S/. {product.price.toFixed(2)}</p>
               </div>
             </div>
-            
-            <button 
-              onClick={() => removeFromCart(item.id)}
-              style={{ 
-                padding: '0.5rem 1rem', 
-                backgroundColor: '#dc3545', 
-                color: 'white', 
-                border: 'none',
-                borderRadius: '4px',
-                cursor: 'pointer'
-              }}
+            <button
+              onClick={() => handleRemoveItem(index)}
+              className="btn-remove"
+              title="Eliminar producto del carrito"
             >
               Eliminar
             </button>
           </div>
         ))}
       </div>
-      
-      <div style={{ 
-        marginTop: '2rem', 
-        padding: '1rem', 
-        backgroundColor: '#f8f9fa', 
-        borderRadius: '4px',
-        textAlign: 'right'
-      }}>
-        <h3>Total: ${total.toFixed(2)}</h3>
-        <button style={{ 
-          padding: '1rem 2rem', 
-          backgroundColor: '#007bff', 
-          color: 'white', 
-          border: 'none',
-          borderRadius: '4px',
-          cursor: 'pointer',
-          fontSize: '1.1rem',
-          marginTop: '1rem'
-        }}>
-          Proceder al Pago
-        </button>
+
+      <div className="cart-summary">
+        <div className="cart-info">
+          <p>Productos en el carrito: <strong>{cart.length}</strong></p>
+        </div>
+        <h3 className="cart-total">
+          Total: <span>S/. {total.toFixed(2)}</span>
+        </h3>
+        <div className="cart-buttons">
+          <button className="btn-checkout" onClick={handleCheckout}>
+            Proceder al Pago
+          </button>
+          <button to="/" className="btn-continue-shopping">
+            <Link to="/" className="btn-continue-shopping-link">
+              Continuar Comprando
+            </Link>
+          </button>
+        </div>
       </div>
     </div>
   );

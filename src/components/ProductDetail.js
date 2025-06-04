@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { getProductById } from '../data/products';
+import '../styles/ProductDetail.css';
 
 function ProductDetail({ addToCart }) {
   const { id } = useParams();
@@ -7,50 +8,40 @@ function ProductDetail({ addToCart }) {
 
   if (!product) {
     return (
-      <div style={{ padding: '2rem', textAlign: 'center' }}>
+      <div className="product-not-found">
         <h2>Producto no encontrado</h2>
-        <Link to="/" style={{ color: '#007bff' }}>Volver a la tienda</Link>
+        <Link to="/" className="back-link">Volver a la tienda</Link>
       </div>
     );
   }
 
   return (
-    <div style={{ padding: '2rem', maxWidth: '800px', margin: '0 auto' }}>
-      <Link to="/" style={{ color: '#007bff', textDecoration: 'none' }}>← Volver a la tienda</Link>
-      
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem', marginTop: '1rem' }}>
+    <div className="product-detail-container">
+      <h2 className="product-list-title">Detalles de Producto</h2>
+      <div className="product-detail-grid">
         <div>
-          <img 
-            src={product.imageUrl} 
+          <img
+            src={product.imageUrl}
             alt={product.name}
-            style={{ width: '100%', borderRadius: '8px' }}
+            className="product-detail-image"
           />
         </div>
-        
-        <div>
+
+        <div className="product-detail-info">
           <h1>{product.name}</h1>
-          <p style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#28a745', margin: '1rem 0' }}>
-            ${product.price}
+          <p className="product-detail-price">
+            S/. {product.price}
           </p>
-          <p style={{ lineHeight: '1.6', color: '#666' }}>
+          <p className="product-detail-description">
             {product.description}
           </p>
-          
-          <button 
+
+          <button
             onClick={() => {
               addToCart(product);
               alert('Producto agregado al carrito!');
             }}
-            style={{ 
-              padding: '1rem 2rem', 
-              backgroundColor: '#28a745', 
-              color: 'white', 
-              border: 'none',
-              borderRadius: '4px',
-              cursor: 'pointer',
-              fontSize: '1.1rem',
-              marginTop: '1rem'
-            }}
+            className="btn-add-to-cart"
           >
             Agregar al Carrito
           </button>
