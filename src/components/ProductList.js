@@ -28,7 +28,7 @@ function ProductList({ addToCart }) {
               {product.description.substring(0, 100)}...
             </p>
             <p style={{ fontSize: '1.2rem', fontWeight: 'bold', color: '#28a745' }}>
-              ${product.price}
+              S/. {product.price}
             </p>
             <div style={{ display: 'flex', gap: '0.5rem', justifyContent: 'center' }}>
               <Link 

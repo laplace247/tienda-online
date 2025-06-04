@@ -33,3 +33,15 @@ a {
 a:hover {
   text-decoration: underline !important;
 }
+
+/* Prevenir scroll cuando el menú móvil está abierto */
+body.menu-open {
+  overflow: hidden;
+}
+
+/* Estilos responsive globales */
+@media (max-width: 768px) {
+  .App {
+    padding-top: 0;
+  }
+}
