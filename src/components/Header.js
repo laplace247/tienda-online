@@ -46,15 +46,7 @@ function Header({ cartCount }) {
     <header className="header">
       <nav className="header-nav">
         <Link to="/" className="header-logo" onClick={closeMobileMenu}>
-          <img
-            src="/logo.png"
-            alt="Logo Tienda de Artesanías"
-            className="header-logo-img"
-            onError={(e) => {
-              e.target.style.display = 'none';
-              console.warn('Logo no encontrado en /public/logo.png');
-            }}
-          />
+          <img src="/logo.png" alt="Logo Tienda de Artesanías" className="header-logo-img" onError={(e) => {e.target.style.display = 'none'; console.warn('Logo no encontrado en /public/logo.png'); }} />
           <h1>Tienda de Artesanías</h1>
         </Link>
 
@@ -66,11 +58,7 @@ function Header({ cartCount }) {
           </Link>
         </div>
 
-        <button
-          className="mobile-menu-button"
-          onClick={toggleMobileMenu}
-          aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}
-        >
+        <button className="mobile-menu-button" onClick={toggleMobileMenu} aria-label={isMobileMenuOpen ? "Cerrar menú" : "Abrir menú"}>
           {isMobileMenuOpen ? '✕' : '☰'}
         </button>
       </nav>

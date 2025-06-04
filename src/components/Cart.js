@@ -36,21 +36,13 @@ function Cart({ cart, removeFromCart }) {
         {cart.map((product, index) => (
           <div key={`${product.id}-${index}`} className="cart-item">
             <div className="cart-item-info">
-              <img
-                src={product.imageUrl}
-                alt={product.name}
-                className="cart-item-image"
-              />
+              <img src={product.imageUrl} alt={product.name} className="cart-item-image"/>
               <div className="cart-item-details">
                 <h4>{product.name}</h4>
                 <p className="cart-item-price">S/. {product.price.toFixed(2)}</p>
               </div>
             </div>
-            <button
-              onClick={() => handleRemoveItem(index)}
-              className="btn-remove"
-              title="Eliminar producto del carrito"
-            >
+            <button onClick={() => handleRemoveItem(index)} className="btn-remove" title="Eliminar producto del carrito">
               Eliminar
             </button>
           </div>

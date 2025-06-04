@@ -54,48 +54,20 @@ function ContactForm() {
 
         <div className="form-group">
           <label htmlFor="name">Nombre:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            disabled={isSubmitting}
-          />
+          <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} required disabled={isSubmitting}/>
         </div>
 
         <div className="form-group">
           <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            disabled={isSubmitting}
-          />
+          <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required disabled={isSubmitting}/>
         </div>
 
         <div className="form-group">
           <label htmlFor="message">Mensaje:</label>
-          <textarea
-            id="message"
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            required
-            disabled={isSubmitting}
-            placeholder="Escribe tu mensaje aquí..."
-          />
+          <textarea id="message" name="message" value={formData.message} onChange={handleChange} required disabled={isSubmitting} placeholder="Escribe tu mensaje aquí..."/>
         </div>
 
-        <button 
-          type="submit" 
-          className="btn-submit"
-          disabled={isSubmitting}
-        >
+        <button type="submit" className="btn-submit" disabled={isSubmitting}>
           {isSubmitting ? 'Enviando...' : 'Enviar Mensaje'}
         </button>
       </form>
