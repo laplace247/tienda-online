@@ -12,7 +12,7 @@ function Cart({ cart, removeFromCart }) {
   };
 
   const handleCheckout = () => {
-    alert(`¡Gracias por tu compra! Total: $${total.toFixed(2)}\n\nEsta es una simulación. En una aplicación real, aquí se procesaría el pago.`);
+    alert(`¡Gracias por tu compra!\nMonto de Compra: S/. ${total.toFixed(2)}\n\nEsto es una simulación. En una aplicación real, aquí se procesaría el pago.`);
   };
 
   if (cart.length === 0) {

@@ -16,7 +16,7 @@ export const products = [
   {
     id: '3',
     name: 'Mascara Decorativa de Madera',
-    price: 45.00,
+    price: 45.20,
     description: 'Máscara de madera tallada y pintada a mano, representando una figura cultural. Un toque exótico para tu hogar.',
     imageUrl: 'https://i.postimg.cc/63vbcpZt/mascara.png',
   },
@@ -31,7 +31,7 @@ export const products = [
   {
     id: '5',
     name: 'Lámpara de Mimbre',
-    price: 65.00,
+    price: 65.60,
     description: 'Lámpara colgante hecha a mano con fibras naturales de mimbre, aporta un estilo rústico y acogedor a cualquier ambiente.',
     imageUrl: 'https://i.postimg.cc/nhMz3XHy/lampara.png',
   },
@@ -39,7 +39,7 @@ export const products = [
   {
     id: '6',
     name: 'Cuadro Textil Huichol',
-    price: 90.00,
+    price: 90.30,
     description: 'Cuadro decorativo con arte textil Huichol, lleno de colores vivos y detalles elaborados a mano. Perfecto para coleccionistas.',
     imageUrl: 'https://i.postimg.cc/cJnf59xG/cuadro.png',
   },
