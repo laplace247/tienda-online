@@ -18,7 +18,7 @@ function ContactForm() {
       <input
         type="text"
         name="name"
-        placeholder="Nombre"
+        placeholder="Nombre"  
         value={formData.name}
         onChange={handleChange}
       />
